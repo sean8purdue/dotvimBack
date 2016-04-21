@@ -55,10 +55,31 @@ git add .
 git ci
 git remote add origin git@github.com:sean8purdue/vim.git
 git push -u origin master
+=====  Update 
+First delete .git repo in plugin
+sudo rm -rf /bundle/plguninName/.git
+git add .
+git ci
+git push -u origin master
 
 6. Download Vim Configue
 rm -rf .vimrc .vim
 git clone git@github.com:sean8purdue/vim.git
 mv vim/ .vim
-ln -s .vim/vimrc .vimrc
+ln -s .vim/vimrc .vimrc 
+
+/* ----------------
+// link vimrc, vimrc的符号连接. The instruction of ln showed below:
+许多用户习惯于使用 vi 而不是 vim。为了当人们在习惯性的输入 vi 时能执行 vim， 需要给二进制文件和 man 页建立符号连接：
+ln -sv vim /usr/bin/vi
+for L in  /usr/share/man/{,*/}man1/vim.1; do
+    ln -sv vim.1 $(dirname $L)/vi.1
+done
+
+默认情况下，Vim 的说明文档被安装在 /usr/share/vim 里。 下面的这个符号链接使得可以通过 /usr/share/doc/vim-7.4 访问该文档，让它的位置与其它软件包的文档位置保持一致：
+ln -sv ../vim/vim74/doc /usr/share/doc/vim-7.4 s
+
+*/ ----------------
+
+
 
