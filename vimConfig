@@ -1,0 +1,64 @@
+https://www.youtube.com/watch?v=OdFZ-RciLnM
+
+1. Backup Original Vim
+mkdir vimBackup
+mv .vimrc vimBackup
+mv .vim vimBackup
+mv .viminfo vimBackup
+
+// Always display status bar on bottom
+set laststatus=2
+
+2.  Install syntastic as a Pathogen bundle
+cd ~/.vim/bundle && \
+git clone https://github.com/scrooloose/syntastic.git
+(change to home diretory, create .vim folder, git clone repo.)
+(it will create two subfolders: autoload, bundle)
+
+Add this to your vimrc:
+execute pathogen#infect()
+or:
+execute pathogen#infect()
+syntax on
+filetype plugin indent on
+
+Now any plugins you wish to install can be extracted to a subdirectory under ~/.vim/bundle, and they will be added to the 'runtimepath'. 
+
+3. Add Plug-In:
+like airlien: 
+cd ~/.vim/bundle
+git clone https://github.com/vim-airline/vim-airline ~/.vim/bundle/vim-airline
+
+cd ~/.vim/bundle && \
+git clone git://github.com/tpope/vim-airline
+
+// Add help documents
+:Helptags
+
+in Vim:   Set runtimepath
+3.2 Download PlugIn zip file and unzip to bundle folder
+
+
+4. Delete Plug-in
+Change to bundle folder, and then delete the plug-in folder.
+rm -rf vim-airline
+
+5. Maintain in Github
+5.1 Create new Github project
+5.2 Local: 
+// Copy .vimrc to .vim and change hide mode
+sudo cp ~/.vimrc ~/.vim/vimrc
+======  first time create repo in github
+cd .vim
+git init
+git add .
+git ci
+git remote add origin git@github.com:sean8purdue/vim.git
+git push -u origin master
+
+6. Download Vim Configue
+rm -rf .vimrc .vim
+git clone git@github.com:sean8purdue/vim.git
+mv vim/ .vim
+ln -s .vim/vimrc .vimrc
+

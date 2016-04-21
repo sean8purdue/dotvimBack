@@ -1,10 +1,18 @@
 set number
 set cindent
+syntax on
 "set mouse cursor move
 set mouse=a
-syntax on
 
+"set background=dark
+
+"set always display Airline plugin
 set laststatus=2
+
+"set mapleader from \ to ,
+let mapleader=","
+"set in Normal mode
+:nmap == ==j
 
 execute pathogen#infect()
 syntax on
